@@ -5,8 +5,44 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Diagnostic</title>
-    </head>
-    <body>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'capstone/start.css' %}" >
+        <title>Dignostic Model</title>
+   </head>
+    <body data-spy="scroll" data-target=".navbar">
+        <div data-spy="scroll"  id="scrollbar">
+            <div class="cover" id="home">
+                <div class="cover-text">
+                    <h1>Welcome to the Diagnostic Model</h1>
+                    <p class="lead">Our new Algorithm will take care of diagnostics and will give you perfect results. Upload any of your X-ray,ct Scan or MRI report and we will determine which body part it belongs To.</p>
+                    <br>
+                    <br>
+                     <label for="selectcity">Select The Scan Type</label>
+                        <select class="form-control" id="selectcity">
+                          <option value="xray">X-ray</option>
+                           <option value="ctscan">CT Scan</option>
+                            <option value="mriscan">MRI Scan</option>
+                            
+                            
+                        </select>
+                        <br>
+                        <br>
+                        <div class="col-xs-4">
+    	                   <div class="form-group">
+	                           <label class="control-label">Upload Your Photo</label><br><br>
+                                <input type="file" class="filestyle" data-buttonText="Select a File">
+		                  </div>
+                   
+                </div>
+                     <a href="#" role="button" class="btn btn-success btn-lg ">Perform Test</a>
+            </div>
+            </div>
+        </div>
+        <footer>
+            Crafted with &hearts; in Neemrana by <a href="#">Our Team</a>
+        </footer>
     </body>
 </html>
