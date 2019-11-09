@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -20,14 +20,14 @@
                     <p class="lead">Welcome to the one stop Destination for your <b>Helathcare and Well being</b>. Our cutting edge machine learning tools will help you be fit and save a lot. With the blend of technology and medicine we provide the service which is best for you. So why wait let's begin!</p>
                     <br>
                     <br>
-                    <a href="#" role="button" class="btn btn-danger btn-lg">Preventative Care</a>
-                    <a href="#" role="button" class="btn btn-success btn-lg">Diagnostic Care</a>
-                    <a href="#" role="button" class="btn btn-warning btn-lg">Insurance Care</a>
+                    <a href="{% url 'preventative:preventative' %}" role="button" class="btn btn-danger btn-lg">Preventative Care</a>
+                    <a href="{% url 'diagnostic:diagnostic'%}" role="button" class="btn btn-success btn-lg">Diagnostic Care</a>
+                    <a href="{% url 'insurance:insurance' %}" role="button" class="btn btn-warning btn-lg">Insurance Care</a>
                 </div>
             </div>
         </div>
         <footer>
-            Crafted with &hearts; in Neemrana by <a href="#team">Our Team</a>
+            Crafted with &hearts; in Neemrana by <a href="#">Our Team</a>
         </footer>
     </body>
 </html>

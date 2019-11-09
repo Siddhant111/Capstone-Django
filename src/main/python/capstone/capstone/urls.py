@@ -21,7 +21,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name = 'index'),
-    path('', include('diagnostic.urls')),
-    path('', include('insurance.urls')),
-    path('', include('preventative.urls')),
+    path('', include('diagnostic.urls', namespace = 'diagnostic')),
+    path('', include('insurance.urls', namespace = 'insurance')),
+    path('', include('preventative.urls', namespace = 'preventative')),
 ]
