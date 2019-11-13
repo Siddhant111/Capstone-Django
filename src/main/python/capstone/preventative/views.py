@@ -34,8 +34,8 @@ def preventative(request):
         obj=dataset['Areas'].groupby(dataset['Zones'])
         plt.scatter(dataset['Count of Doctors'], dataset['Zones'])
         # plt.show()
-        plt.savefig(settings.BASE_DIR + '/static/Count of Doctors vs Zones.png')
-        sheets = pd.read_excel(settings.BASE_DIR + uploaded_file_url,sheet_name=['sum'])
+        plt.savefig(settings.BASE_DIR + '/static/' + uploaded_file_url + '_1.png')
+        sheets = pd.read_excel(settings.BASE_DIR + uploaded_file_url, sheet_name=['sum'])
         dataset = pd.concat(sheets[frame] for frame in sheets.keys())
         dataset = dataset.drop([2])
         dataset = dataset.rename(columns={
@@ -53,6 +53,6 @@ def preventative(request):
         labelencoder_X = LabelEncoder()
         plt.scatter(dataset['Count of center'], dataset['Area'])
         # plt.show()
-        plt.savefig(settings.BASE_DIR + '/static/Count of center vs Area.png')
+        plt.savefig(settings.BASE_DIR + '/static/' + uploaded_file_url + '_2.png')
         return render(request, 'preventative.html', {'uploaded_file_url': uploaded_file_url, 'conclusion': 'ujhbkhxhcgjv'})
     return render(request, 'preventative.html')
