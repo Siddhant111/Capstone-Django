@@ -33,11 +33,12 @@ def preventative(request):
         labelencoder_X = LabelEncoder()
         obj=dataset['Areas'].groupby(dataset['Zones'])
         plt.scatter(dataset['Count of Doctors'], dataset['Zones'])
-        plt.show()
+        # plt.show()
+        plt.savefig(settings.BASE_DIR + '/static/Count of Doctors vs Zones.png')
         sheets = pd.read_excel(settings.BASE_DIR + uploaded_file_url,sheet_name=['sum'])
-        dataset1 = pd.concat(sheets[frame] for frame in sheets.keys())
-        dataset1 = dataset1.drop([2])
-        dataset1 = dataset1.rename(columns={
+        dataset = pd.concat(sheets[frame] for frame in sheets.keys())
+        dataset = dataset.drop([2])
+        dataset = dataset.rename(columns={
             'Unnamed: 0': 'Row Labels',
             'Unnamed: 1': 'Area',
             'Unnamed: 2': 'Count of center',
@@ -48,9 +49,10 @@ def preventative(request):
             'Unnamed: 7': 'Dr/cr',
         })
         imputer = Imputer(missing_values = 'nan', strategy = 'mean', axis = 0)
-        dataset1 = dataset1.dropna(how='any')
+        dataset = dataset.dropna(how='any')
         labelencoder_X = LabelEncoder()
-        plt.scatter(dataset1['Count of center'], dataset1['Area'])
-        plt.show()
+        plt.scatter(dataset['Count of center'], dataset['Area'])
+        # plt.show()
+        plt.savefig(settings.BASE_DIR + '/static/Count of center vs Area.png')
         return render(request, 'preventative.html', {'uploaded_file_url': uploaded_file_url, 'conclusion': 'ujhbkhxhcgjv'})
     return render(request, 'preventative.html')
