@@ -18,6 +18,9 @@ from django.urls import path, include
 
 from . import views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name = 'index'),
@@ -25,3 +28,6 @@ urlpatterns = [
     path('', include('insurance.urls', namespace = 'insurance')),
     path('', include('preventative.urls', namespace = 'preventative')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
