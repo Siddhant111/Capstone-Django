@@ -34,5 +34,23 @@ def preventative(request):
         obj=dataset['Areas'].groupby(dataset['Zones'])
         plt.scatter(dataset['Count of Doctors'], dataset['Zones'])
         plt.show()
-        return render(request, 'preventative.html', {'uploaded_file_url': uploaded_file_url})
+        sheets = pd.read_excel(settings.BASE_DIR + uploaded_file_url,sheet_name=['sum'])
+        dataset1 = pd.concat(sheets[frame] for frame in sheets.keys())
+        dataset1 = dataset1.drop([2])
+        dataset1 = dataset1.rename(columns={
+            'Unnamed: 0': 'Row Labels',
+            'Unnamed: 1': 'Area',
+            'Unnamed: 2': 'Count of center',
+            'Unnamed: 3': 'doctors',
+            'Unnamed: 4': 'pop',
+            'Unnamed: 5': 'Pop/center',
+            'Unnamed: 6': 'Pop/Dr',
+            'Unnamed: 7': 'Dr/cr',
+        })
+        imputer = Imputer(missing_values = 'nan', strategy = 'mean', axis = 0)
+        dataset1 = dataset1.dropna(how='any')
+        labelencoder_X = LabelEncoder()
+        plt.scatter(dataset1['Count of center'], dataset1['Area'])
+        plt.show()
+        return render(request, 'preventative.html', {'uploaded_file_url': uploaded_file_url, 'conclusion': 'ujhbkhxhcgjv'})
     return render(request, 'preventative.html')
