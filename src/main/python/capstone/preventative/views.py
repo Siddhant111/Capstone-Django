@@ -52,7 +52,12 @@ def preventative(request):
         dataset = dataset.dropna(how='any')
         labelencoder_X = LabelEncoder()
         plt.scatter(dataset['Count of center'], dataset['Area'])
+        plt.scatter(dataset['doctors'], dataset['Area'])
+        plt.scatter(dataset['Pop/center'], dataset['Area'])
+        plt.scatter(dataset['Pop/Dr'], dataset['Area'])
+        
         # plt.show()
         plt.savefig(settings.BASE_DIR + '/static/' + uploaded_file_url + '_2.png')
-        return render(request, 'preventative.html', {'uploaded_file_url': uploaded_file_url, 'conclusion': 'ujhbkhxhcgjv'})
+        return render(request, 'preventative.html', {'uploaded_file_url': uploaded_file_url, 'conclusion1': 'The most health centers lie in the South Zone','conclusion2': 'The Area of Jubilee Hills has the lowest population per doctor count of 319',
+       'conclusion3': 'The Area of Karmanghat has the most Doctors per center which is 11','conclusion4': 'More Doctors should be appointed in the areas where the population per doctor count is exceeds 5000 in order to properly treat the patients and prevent the outbreak of dangerous diseases' })
     return render(request, 'preventative.html')
