@@ -20,23 +20,26 @@
                     <p class="lead">Our new Algorithm will take care of diagnostics and will give you perfect results. Upload any of your X-ray,ct Scan or MRI report and we will determine which body part it belongs To.</p>
                     <br>
                     <br>
-                    <label for="selectcity">Select The Scan Type</label>
+                    <!-- <label for="selectcity">Select The Scan Type</label>
                     <select class="form-control" id="selectcity">
                         <option value="xray">X-ray</option>
                         <option value="ctscan">CT Scan</option>
                         <option value="mriscan">MRI Scan</option>
                     </select>
                     <br>
-                    <br>
+                    <br> -->
                     <div class="col-xs-4">
-                        <div class="form-group">
+                        <form method="post" enctype="multipart/form-data" class="form-group">
+                            {% csrf_token %}
                             <label class="control-label">Upload Your Photo</label>
                             <br>
                             <br>
-                            <input type="file" class="filestyle" data-buttonText="Select a File">
-                        </div>
+                            <input name="myfile" type="file" class="filestyle" data-buttonText="Select a File">
+                            <button type="submit" role="button" class="btn btn-success btn-lg ">Perform Test</a>
+                        </form>
                     </div>
-                    <a href="#" role="button" class="btn btn-success btn-lg ">Perform Test</a>
+                    {% if uploaded_file_url %}
+                    {% endif %}
                 </div>
             </div>
         </div>
