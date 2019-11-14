@@ -31,20 +31,35 @@
                         </form>
                     </div>
                     {% if uploaded_file_url %}
-                        <h1>
-                            Conclusion
-                        </h1>
-                        <p>
-                            {{ conclusion }}
-                        </p>
-                        <br>
-                        <br>
-                        <br>
                         <img src="{% static '' %}{{ uploaded_file_url|slice:'1:'|add:'_1.png' }}">
                         <br>
                         <br>
                         <br>
                         <img src="{% static '' %}{{ uploaded_file_url|slice:'1:'|add:'_2.png' }}">
+                        <br>
+                        <br>
+                        <br>
+                        <img src="{% static '' %}{{ uploaded_file_url|slice:'1:'|add:'_3.png' }}">
+                        <br>
+                        <br>
+                        <br>
+                        <img src="{% static '' %}{{ uploaded_file_url|slice:'1:'|add:'_4.png' }}">
+                        <br>
+                        <br>
+                        <br>
+                        <img src="{% static '' %}{{ uploaded_file_url|slice:'1:'|add:'_5.png' }}">
+                        <br>
+                        <br>
+                        <br>
+                        <h1>
+                            Conclusion
+                        </h1>
+                        <ul>
+                            <li>{{ conclusion1 }}</li>
+                            <li>{{ conclusion2 }}</li>
+                            <li>{{ conclusion3 }}</li>
+                            <li>{{ conclusion4 }}</li>
+                        </ul>
                     {% endif %}
                 </div>
             </div>
