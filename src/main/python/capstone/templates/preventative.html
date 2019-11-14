@@ -30,6 +30,7 @@
                             <button type="submit" role="button" class="btn btn-success btn-lg ">Perform Test</a>
                         </form>
                     </div>
+                    {{ error }}
                     {% if uploaded_file_url %}
                         <img src="{% static '' %}{{ uploaded_file_url|slice:'1:'|add:'_1.png' }}">
                         <br>
@@ -55,10 +56,15 @@
                             Conclusion
                         </h1>
                         <ul>
-                            <li>{{ conclusion1 }}</li>
-                            <li>{{ conclusion2 }}</li>
-                            <li>{{ conclusion3 }}</li>
-                            <li>{{ conclusion4 }}</li>
+                            {% if max_zone and maximum_doc %}
+                                <li>The highest count of doctors lie in the {{ max_zone }} with a total of {{ maximum_doc }} doctors</li>
+                            {% endif %}
+                            {% if min_area and minimum_pop %}
+                                <li>The area of {{ min_area }} has the lowest population per doctor count of {{ minimum_pop }}</li>
+                            {% endif %}
+                            {% if areas_list %}
+                                <li>More Doctors should be appointed in the areas where the population per doctor count exceeds 5000, i.e., {{ areas_list }}, in order to properly treat the patients and prevent the outbreak of dangerous diseases</li>
+                            {% endif %}
                         </ul>
                     {% endif %}
                 </div>
