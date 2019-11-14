@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'capstone/start.css' %}">
+        <title>Insurance Model</title>
+    </head>
+    <body data-spy="scroll" data-target=".navbar">
+        <div data-spy="scroll"  id="scrollbar">
+            <div class="cover" id="home">
+                <div class="cover-text">
+                    <h1>Hello & Welcome</h1>
+                    <p class="lead">Want to buy an Insurance Plan? We got you covered. Our Smart Machine learning algorithm analyzes people and estimates a balanced and realsitic amount you must pay and helps you in selecting the best <b>Insurance plan</b> according to the Loaction you Live in. </p>
+                    <br>
+                    <br>
+                    <label for="selectcity">Select Your City</label>
+                    <select class="form-control" id="selectcity">
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Pune">Pune</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Banglore">Banglore</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Hydrabad">Hydrabad</option>
+                        <option value="Jaipur">Jaipur</option>
+                    </select>
+                    <a href="#" role="button" class="btn btn-danger btn-lg insurance">Give Me the Best Insurance!</a>
+                </div>
+            </div>
+        </div>
+        <footer>
+            Crafted with &hearts; in Neemrana by <a href="#">Our Team</a>
+        </footer>
+    </body>
+</html>
